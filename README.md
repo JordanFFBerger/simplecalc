@@ -12,7 +12,6 @@ Android development tools. Then, from this directory:
 
 ```sh
 flutter doctor
-flutter create --platforms=android,ios --project-name=simplecalc --no-overwrite .
 flutter pub get
 dart format lib test
 flutter analyze
@@ -20,10 +19,12 @@ flutter test
 flutter run
 ```
 
-The `flutter create` command generates the native Android and iOS host projects
-using your installed SDK. `--no-overwrite` preserves the calculator source and
-tests already in this folder. Connect a phone with development mode enabled or
-start an emulator before `flutter run`.
+The Android and iOS host projects are included. Connect a phone with development
+mode enabled or start an emulator before `flutter run`.
+
+If Flutter works in VS Code but not your terminal, use the SDK location from
+VS Code's `dart.flutterSdkPath` setting, or add that SDK's `bin` directory to
+your PATH.
 
 To create an Android release APK:
 
@@ -48,6 +49,13 @@ flutter build ios
 
 ## Validation status
 
-Flutter and Dart were unavailable in the conversion environment. The Dart
-source and tests are supplied, but Flutter analysis, test execution, native
-project generation, and mobile builds must run on a machine with the SDK.
+Validated with Flutter 3.47.2 and Dart 3.13.2:
+
+- `flutter analyze`: no issues found.
+- `flutter test`: all 9 tests passed, including arithmetic, touch controls,
+  and small-screen/landscape layouts.
+- Android and iOS host projects generated with the Flutter SDK.
+- `flutter build apk --debug`: succeeded; APK at
+  `build/app/outputs/flutter-apk/app-debug.apk`.
+
+iOS compilation still requires a Mac with Xcode.

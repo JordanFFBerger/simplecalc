@@ -98,10 +98,17 @@ class _CalculatorPageState extends State<CalculatorPage> {
                     ? const Color(0xFFE8ECE3)
                     : const Color(0xFFF5F5EF);
     final label = const {
-      'AC': 'Clear all', '+/−': 'Change sign', '⌫': 'Delete last digit',
-      '/': 'Divide', '*': 'Multiply', '-': 'Subtract', '+': 'Add',
-      '=': 'Equals', '.': 'Decimal point',
-    }[key] ?? key;
+          'AC': 'Clear all',
+          '+/−': 'Change sign',
+          '⌫': 'Delete last digit',
+          '/': 'Divide',
+          '*': 'Multiply',
+          '-': 'Subtract',
+          '+': 'Add',
+          '=': 'Equals',
+          '.': 'Decimal point',
+        }[key] ??
+        key;
     return Expanded(
       flex: flex,
       child: Padding(
@@ -146,23 +153,31 @@ class _CalculatorPageState extends State<CalculatorPage> {
             return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
               child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: constraints.maxHeight - 48 > 0
-                    ? constraints.maxHeight - 48 : 0),
+                constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight - 48 > 0
+                        ? constraints.maxHeight - 48
+                        : 0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(children: [
                       Container(
-                        width: 30, height: 30,
-                        decoration: BoxDecoration(color: _green,
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            color: _green,
                             borderRadius: BorderRadius.circular(9)),
                         alignment: Alignment.center,
-                        child: const Text('=', style: TextStyle(
-                            color: Colors.white, fontSize: 25)),
+                        child: const Text('=',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 25)),
                       ),
                       const SizedBox(width: 10),
-                      const Text('simple.', style: TextStyle(fontSize: 25,
-                          fontWeight: FontWeight.w700, color: _ink)),
+                      const Text('simple.',
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w700,
+                              color: _ink)),
                     ]),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 32),
@@ -172,11 +187,17 @@ class _CalculatorPageState extends State<CalculatorPage> {
                           child: Column(children: [
                             const Text('A LITTLE LESS COMPLICATED',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 10, letterSpacing: 2,
-                                    fontWeight: FontWeight.w700, color: _muted)),
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    letterSpacing: 2,
+                                    fontWeight: FontWeight.w700,
+                                    color: _muted)),
                             const SizedBox(height: 12),
-                            const Text('Just the basics.', textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 36, letterSpacing: -1.5,
+                            const Text('Just the basics.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 36,
+                                    letterSpacing: -1.5,
                                     color: _ink)),
                             const SizedBox(height: 8),
                             const Text('For the everyday things that add up.',
@@ -189,15 +210,19 @@ class _CalculatorPageState extends State<CalculatorPage> {
                                 color: const Color(0xFFFCFCF8),
                                 borderRadius: BorderRadius.circular(26),
                                 border: Border.all(color: Colors.white),
-                                boxShadow: const [BoxShadow(
-                                  color: Color(0x18304332), blurRadius: 36,
-                                  offset: Offset(0, 14),
-                                )],
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Color(0x18304332),
+                                    blurRadius: 36,
+                                    offset: Offset(0, 14),
+                                  )
+                                ],
                               ),
                               child: Column(children: [
                                 Container(
                                   width: double.infinity,
-                                  margin: const EdgeInsets.fromLTRB(5, 5, 5, 13),
+                                  margin:
+                                      const EdgeInsets.fromLTRB(5, 5, 5, 13),
                                   padding: const EdgeInsets.all(18),
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFEDF0E7),
@@ -206,11 +231,14 @@ class _CalculatorPageState extends State<CalculatorPage> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
-                                      Text(_calculator.expression.isEmpty
-                                          ? ' ' : _calculator.expression,
+                                      Text(
+                                          _calculator.expression.isEmpty
+                                              ? ' '
+                                              : _calculator.expression,
                                           key: const Key('expression'),
                                           textAlign: TextAlign.right,
-                                          style: const TextStyle(fontSize: 14, color: _muted)),
+                                          style: const TextStyle(
+                                              fontSize: 14, color: _muted)),
                                       const SizedBox(height: 10),
                                       Semantics(
                                         liveRegion: true,
@@ -220,8 +248,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
                                           fit: BoxFit.scaleDown,
                                           child: Text(_calculator.value,
                                               key: const Key('result'),
-                                              style: const TextStyle(fontSize: 46,
-                                                  color: _ink, letterSpacing: -1)),
+                                              style: const TextStyle(
+                                                  fontSize: 46,
+                                                  color: _ink,
+                                                  letterSpacing: -1)),
                                         ),
                                       ),
                                     ],
@@ -234,8 +264,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
                                   ['1', '2', '3', '+'],
                                   ['0', '.', '='],
                                 ])
-                                  Row(children: [for (final key in row)
-                                    _button(key, flex: key == '0' ? 2 : 1)]),
+                                  Row(children: [
+                                    for (final key in row)
+                                      _button(key, flex: key == '0' ? 2 : 1)
+                                  ]),
                               ]),
                             ),
                           ]),

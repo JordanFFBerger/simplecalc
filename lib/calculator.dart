@@ -60,9 +60,8 @@ class Calculator {
     };
     value = result.isFinite ? _format(result) : 'Error';
     if (!result.isFinite) {
-      expression = op == '/' && b == 0
-          ? 'Cannot divide by zero'
-          : 'Result is too large';
+      expression =
+          op == '/' && b == 0 ? 'Cannot divide by zero' : 'Result is too large';
     }
     operator = null;
     _previous = null;
