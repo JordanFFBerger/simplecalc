@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ed" />
+    <title>Simple — Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="brand"><span class="brand-icon" aria-hidden="true">=</span> simple<span class="brand-dot">.</span></header>
+    <main>
+      <div class="intro"><p class="eyebrow">A LITTLE LESS COMPLICATED</p><h1>Just the basics.</h1><p>For the everyday things that add up.</p></div>
+      <section class="calculator" aria-label="Calculator">
+        <div class="display"><div id="expression" class="expression" aria-label="Equation">&nbsp;</div><output id="result" aria-live="polite" aria-atomic="true">0</output></div>
+        <div class="keypad">
+          <button class="utility" data-action="clear" aria-label="Clear all">AC</button>
+          <button class="utility" data-action="sign" aria-label="Change sign">+/−</button>
+          <button class="utility" data-action="backspace" aria-label="Delete last digit">⌫</button>
+          <button class="operator" data-operator="/" aria-label="Divide">÷</button>
+          <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
+          <button class="operator" data-operator="*" aria-label="Multiply">×</button>
+          <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
+          <button class="operator" data-operator="-" aria-label="Subtract">−</button>
+          <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
+          <button class="operator" data-operator="+" aria-label="Add">+</button>
+          <button class="zero" data-digit="0">0</button><button data-digit="." aria-label="Decimal point">.</button>
+          <button class="equals" data-action="equals" aria-label="Equals">=</button>
+        </div>
+      </section>
+      <p class="keyboard-hint"><span aria-hidden="true">⌨</span> Your keyboard works here, too.</p>
+    </main>
+    <footer>Small calculations. Clear answers.</footer>
+    <script src="calculator.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
